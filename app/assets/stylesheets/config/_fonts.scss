@@ -7,3 +7,8 @@
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora&display=swap');
+
+/* Define fonts for body and headers */
+$body-font: "Lato", "sans-serif";
+$headers-font: "Lora", serif;

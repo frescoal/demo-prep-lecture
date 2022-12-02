@@ -2,9 +2,14 @@
   <%= f.input :name,
               wrapper_html: { class: "mb-4" },
               label_html: { class: "form-label text-secondary fw-bold" } %>
-  <%= f.input :description,
-              wrapper_html: { class: "mb-4" },
-              label_html: { class: "form-label text-secondary fw-bold" } %>
+  <div data-controller="character-counter">
+    <%= f.input :description,
+                wrapper_html: { class: "mb-1" },
+                input_html: { data: { character_counter_target: "input" } },
+                label_html: { class: "form-label text-secondary fw-bold" } %>
+
+    <p>Description is currently <strong data-character-counter-target="counter"></strong> characters long.</p>
+  </div>
   <%= f.input :photo,
               as: :file,
               wrapper_html: { class: "mb-4" },
@@ -40,14 +45,16 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= f.input :opens_at,
+      <%= f.input :opens_at, as: :string,
                   wrapper_html: { class: "mb-4" },
-                  label_html: { class: "form-label text-secondary fw-bold" } %>
+                  label_html: { class: "form-label text-secondary fw-bold" },
+                  input_html: { data: { controller: "flatpickr" } } %>
     </div>
     <div class="col">
-      <%= f.input :closes_at,
+      <%= f.input :closes_at, as: :string,
                   wrapper_html: { class: "mb-4" },
-                  label_html: { class: "form-label text-secondary fw-bold" } %>
+                  label_html: { class: "form-label text-secondary fw-bold" },
+                  input_html: { data: { controller: "flatpickr" } } %>
     </div>
   </div>
   <%= f.submit restaurant.new_record? ? "Create restaurant" : "Update restaurant", class:"btn btn-primary" %>
